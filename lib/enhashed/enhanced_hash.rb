@@ -1,5 +1,5 @@
-class Options
-  attr_accessor :options
+class EnhancedHash
+  attr_accessor :hash
 
   def initialize(init_options = {})
     @hash = {}
