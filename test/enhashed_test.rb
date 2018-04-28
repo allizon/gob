@@ -10,12 +10,14 @@ class EnhashedTest < Minitest::Test
     refute_nil ::Enhashed::VERSION
   end
 
-  def test_to_a_should_return_an_array
+  def test_to_a_should_return_an_array_of_values
     assert @hash.to_a.is_a?(Array)
+    assert_equal [1, 2, 3], @hash.to_a
   end
 
   def test_to_h_should_return_a_hash
     assert @hash.to_h.is_a?(Hash)
+    assert_equal ({ a: 1, b: 2, c: 3 }), @hash.to_h
   end
 
   def test_all_hash_keys_are_symbols_on_initialization

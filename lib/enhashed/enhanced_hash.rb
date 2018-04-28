@@ -8,7 +8,7 @@ class EnhancedHash
   end
 
   def to_a
-    @hash.to_a
+    @hash.values
   end
 
   def to_h
