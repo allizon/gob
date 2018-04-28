@@ -1,0 +1,35 @@
+PATH
+  remote: .
+  specs:
+    super_options (0.1.1)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    ansi (1.5.0)
+    builder (3.2.2)
+    metaclass (0.0.4)
+    minitest (5.9.0)
+    minitest-reporters (1.1.10)
+      ansi
+      builder
+      minitest (>= 5.0)
+      ruby-progressbar
+    mocha (1.1.0)
+      metaclass (~> 0.0.1)
+    rake (10.5.0)
+    ruby-progressbar (1.8.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (~> 1.11)
+  minitest (~> 5.0)
+  minitest-reporters (~> 1.1)
+  mocha (~> 1.1)
+  rake (~> 10.0)
+  super_options!
+
+BUNDLED WITH
+   1.12.5
