@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    enhashed (0.1.1)
+    gob (0.1.1)
 
 GEM
   remote: https://rubygems.org/
@@ -60,7 +60,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.11)
-  enhashed!
+  gob!
   guard (~> 2.14)
   guard-minitest
   minitest (~> 5.0)

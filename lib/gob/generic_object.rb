@@ -1,4 +1,4 @@
-class EnhancedHash
+class GenericObject
   attr_accessor :hash
 
   def initialize(init_options = {})
