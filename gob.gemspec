@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'enhashed/version'
+require 'gob/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'enhashed'
-  spec.version       = Enhashed::VERSION
+  spec.name          = 'gob'
+  spec.version       = Gob::VERSION
   spec.authors       = ['Allison Holt']
   spec.email         = ['hey@alli.fyi']
 
-  spec.summary       = %q{Create slightly easier-to-use hashes with lots of magical syntactical sugar!}
-  spec.homepage      = %q{https://github.com/allizon/enhashed}
+  spec.summary       = %q{Create "generic objects" with lots of magical syntactical sugar!}
+  spec.homepage      = %q{https://github.com/allizon/gob}
 
   spec.files         = `git ls-files -z lib`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = 'exe'

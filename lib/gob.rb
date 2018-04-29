@@ -1,8 +1,8 @@
-require 'enhashed/version'
-require 'enhashed/enhanced_hash'
+require 'gob/version'
+require 'gob/enhanced_hash'
 require 'blank'
 
-module Enhashed
+module Gob
   # Allow us to return an instance of the Options class as the
   # module itself.
   def new(init_options = {})

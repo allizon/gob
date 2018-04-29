@@ -1,13 +1,13 @@
 require_relative 'test_helper'
 
-class EnhashedTest < Minitest::Test
+class GobTest < Minitest::Test
   def setup
-    @hash = Enhashed.new
+    @hash = Gob.new
     @hash.set(a: 1, b: 2, c: 3)
   end
 
   def test_that_it_has_a_version_number
-    refute_nil ::Enhashed::VERSION
+    refute_nil ::Gob::VERSION
   end
 
   def test_to_a_should_return_an_array_of_values
@@ -21,8 +21,8 @@ class EnhashedTest < Minitest::Test
   end
 
   def test_all_hash_keys_are_symbols_on_initialization
-    enhashed = Enhashed.new('a' => 1, 'b' => 2, 'c' => 3)
-    enhashed.hash.each_key { |k| assert k.is_a?(Symbol) }
+    gob = Gob.new('a' => 1, 'b' => 2, 'c' => 3)
+    gob.hash.each_key { |k| assert k.is_a?(Symbol) }
   end
 
   def test_magic_method_fetches_requested_variable
