@@ -1,5 +1,7 @@
+require 'gob/arg_checker'
+
 class GenericObject
-  attr_accessor :hash
+  attr_reader :hash
 
   def initialize(init_options = {})
     @hash = {}
@@ -49,13 +51,13 @@ class GenericObject
 
   # Checks to see that all passed symbols exist
   def has?(*args)
-    check_args(args) do |arg|
+    Gob::ArgChecker.check_args(args) do |arg|
       @hash.key?(arg.to_sym)
     end
   end
 
   def has_any?(*args)
-    check_any_args(args) do |arg|
+    Gob::ArgChecker.check_any_args(args) do |arg|
       @hash.key?(arg.to_sym)
     end
   end
@@ -63,28 +65,28 @@ class GenericObject
 
   # Checks to see that all passed symbols exist and are truthy
   def true?(*args)
-    check_args(args) do |arg|
+    Gob::ArgChecker.check_args(args) do |arg|
       !@hash[arg.to_sym].blank?
     end
   end
 
   # Checks to see that any of the passed symbols exists and is truthy
   def true_any?(*args)
-    check_any_args(args) do |arg|
+    Gob::ArgChecker.check_any_args(args) do |arg|
       !@hash[arg.to_sym].blank?
     end
   end
 
   # Checks to see that all passed symbols exist and are falsey
   def false?(*args)
-    check_args(args) do |arg|
+    Gob::ArgChecker.check_args(args) do |arg|
       @hash[arg.to_sym].blank?
     end
   end
 
   # Checks to see that any of the passed symbols exists and is falsey
   def false_any?(*args)
-    check_any_args(args) do |arg|
+    Gob::ArgChecker.check_any_args(args) do |arg|
       @hash[arg.to_sym].blank?
     end
   end
@@ -96,40 +98,6 @@ class GenericObject
   def delete_field(key)
     key = key.to_sym
     @hash.delete(key) if has?(key)
-  end
-
-  private
-
-  # Check each of the args that are passed in using the block defined in the
-  # original method. If we're looking to match ALL values, then we assume true
-  # until proven false; if we're looking for ANY values, we assume false until
-  # proven true (and can then stop looking at further arguments).
-  def do_arg_check(args, all = true)
-    bool = all
-    args.each do |arg|
-      case arg
-      when Symbol, String
-        if all
-          bool = yield(arg)
-        else
-          if yield(arg)
-            bool = true
-            break
-          end
-        end
-      else
-        fail ArgumentError.new('Argument to set must be string or symbol (given: %s)' % arg.to_s)
-      end
-    end
-    bool
-  end
-
-  def check_args(args, &block)
-    do_arg_check(args, true, &block)
-  end
-
-  def check_any_args(args, &block)
-    do_arg_check(args, false, &block)
   end
 end
 
