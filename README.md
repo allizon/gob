@@ -6,6 +6,16 @@
 
 Or add it to your Gemfile. It's really that simple. I mean, I hope it is. Let me know if it's not!
 
+### Example
+```ruby
+config = Gob.new(debug: true, outfile: '/tmp/outfile.txt')
+do_this_thing if config.debug?
+write_file(config.outfile) if config.outfile? # (or config.has?(:outfile))
+
+config.set(print: true)
+print_output if config.true_any?(:debug, :print)
+```
+
 ### Usage
 Create a new generic object and access each of the provided hash keys as object methods:
 ```ruby
@@ -67,5 +77,7 @@ gob.to_h => { a: 1, b: 2, c: 3 }
 ```
 
 ### Contributing
+I'm happy to take pull requests -- I'm sure there's a ton more that could be done to this thing
 
 ### License
+MIT.

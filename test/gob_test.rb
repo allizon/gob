@@ -2,8 +2,7 @@ require_relative 'test_helper'
 
 class GobTest < Minitest::Test
   def setup
-    @hash = Gob.new
-    @hash.set(a: 1, b: 2, c: 3)
+    @hash = Gob.new(a: 1, b: 2, c: 3)
   end
 
   def test_that_it_has_a_version_number

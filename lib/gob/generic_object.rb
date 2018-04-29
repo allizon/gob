@@ -3,7 +3,7 @@ class GenericObject
 
   def initialize(init_options = {})
     @hash = {}
-    init_options.each_pair { |k, v| set(k, v) }
+    init_options.each_pair { |key, value| set(key, value) }
     self
   end
 
@@ -59,6 +59,7 @@ class GenericObject
       @hash.key?(arg.to_sym)
     end
   end
+  alias_method :any?, :has_any?
 
   # Checks to see that all passed symbols exist and are truthy
   def true?(*args)
