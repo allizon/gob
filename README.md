@@ -77,7 +77,7 @@ gob.to_h => { a: 1, b: 2, c: 3 }
 ```
 
 ### FAQ
-**Do you pronounce it "johb" like "Gob Bluth" or "gahb" like "gob of bubblegum"?
+**Do you pronounce it "johb" like "Gob Bluth" or "gahb" like "gob of bubblegum"?**
 
 Doesn't much matter to me! I was thinking of the former, but the latter works, too. I'm not getting into a pronounciation-of-GIF-style flamewar over this thing. :)
 
