@@ -18,31 +18,26 @@ class GenericObject
   end
 
   def method_missing(*args)
-    key = args[0].to_sym
-    case key[-1]
-    when '?'
-      key = key[0..-2].to_sym
-      true?(key)
-    when '='
-      key = key[0..-2].to_sym
-      set(key, args[1])
-    else
-      fetch(key)
-    end
+    key    = args[0].to_sym
+    suffix = key[-1]
+    return fetch(key) unless %w(? =).include?(suffix)
+
+    key = key_minus_suffix(key)
+    return true?(key) if suffix == '?'
+    set(key, args[1]) if suffix == '='
   end
 
   def set(*args)
     first_arg = args[0]
     case first_arg
     when String, Symbol
-      key           = first_arg.to_sym
-      value         = args.at(1).nil? ? true : args[1] # no value, default to true
-      @hash[key] = value
+      @hash[first_arg.to_sym] = args.at(1).nil? ? true : args[1] # no value, default to true
     when Hash
-      first_arg.each_pair { |k, v| set(k, v) }
+      first_arg.each_pair { |key, value| set(key, value) }
     else
       fail ArgumentError.new('Argument to set must be string, symbol or hash (given: %s)' % first_arg.to_s)
     end
+    self
   end
 
   def fetch(key)
@@ -98,6 +93,10 @@ class GenericObject
   def delete_field(key)
     key = key.to_sym
     @hash.delete(key) if has?(key)
+  end
+
+  def key_minus_suffix(key)
+    key[0..-2].to_sym
   end
 end
 
