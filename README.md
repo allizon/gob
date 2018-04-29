@@ -1,5 +1,5 @@
-# Gob (Generic OBject)
-`gob` provides a generic object for Ruby with lots and lots of yummy syntactic sugar, great for storing settings or options and the like. I'm sure there are other fantastic uses for it, too! There has to be, right?
+# Gob (Generic OBject) for Ruby
+`gob` provides a generic object for Ruby with lots and lots of yummy syntactic sugar, great for storing settings or options and the like. I'm sure there are other fantastic uses for it, too! There have to be, right?
 
 ### Installation
 `gem install gob`
@@ -27,7 +27,7 @@ gob.c => 3
 
 OK, well, that's not enough, you say? You're right, it's not. You can also:
 
-Set additional key-value pairs or set values directly on your object:
+Set additional key-value pairs or set values directly on your object!
 ```ruby
 gob.set(d, 4)
 gob.d => 4
@@ -36,7 +36,7 @@ gob.e = 5
 gob.e => 5
 ```
 
-Check for the truthiness of any given key or list of keys:
+Check for the truthiness of any given key or any of a list of keys!
 ```ruby
 gob.a? => true # Shortcut for checking any key
 gob.true?(:a) => true # A little more explicit
@@ -55,7 +55,7 @@ gob.true?(:not_here) => false
 gob.false?(:not_here) => true
 ```
 
-Check to see if a given key -- or one of a list of keys -- exists:
+Check to see if a given key -- or one of a list of keys -- exists!
 ```ruby
 gob.has?(:a) => true
 gob.has?(:z) => false
@@ -76,8 +76,13 @@ gob.to_a => [1, 2, 3]
 gob.to_h => { a: 1, b: 2, c: 3 }
 ```
 
+### FAQ
+**Do you pronounce it "johb" like "Gob Bluth" or "gahb" like "gob of bubblegum"?
+
+Doesn't much matter to me! I was thinking of the former, but the latter works, too. I'm not getting into a pronounciation-of-GIF-style flamewar over this thing. :)
+
 ### Contributing
-I'm happy to take pull requests -- I'm sure there's a ton more that could be done to this thing
+I'm more than happy to take pull requests -- I'm sure there's a ton more that could be done to this thing
 
 ### License
 MIT.
