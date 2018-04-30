@@ -9,6 +9,12 @@ class GobTest < Minitest::Test
     refute_nil ::Gob::VERSION
   end
 
+  def test_shortcut_and_full_class_name_both_work
+    shortcut        = Gob.new(a: 1)
+    full_class_name = GenericObject.new(a: 1)
+    assert_equal shortcut.to_h, full_class_name.to_h
+  end
+
   def test_to_a_should_return_an_array_of_values
     assert @hash.to_a.is_a?(Array)
     assert_equal [1, 2, 3], @hash.to_a

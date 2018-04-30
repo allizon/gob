@@ -20,6 +20,9 @@ print_output if config.true_any?(:debug, :print)
 Create a new generic object and access each of the provided hash keys as object methods:
 ```ruby
 gob = Gob.new(a: 1, b: 2, c: 3)
+# OR
+gob = GenericObject.new(a: 1, b: 2, c: 3)
+
 gob.a => 1
 gob.b => 2
 gob.c => 3
